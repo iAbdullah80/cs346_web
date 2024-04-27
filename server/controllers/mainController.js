@@ -5,10 +5,18 @@ exports.homepage=async(req,res)=>{
         title:'Homepage',
         description:'test'
     }
-    res.render('index', {
-        locals,
-        layout: '../views/layouts/front-page'
-    })
+    if (req.user) {
+        res.render('index', {
+            userName: req.user.firstName,
+            locals,
+            layout: '../views/layouts/front-page'
+        })
+    } else {
+        res.render('index', {
+            locals,
+            layout: '../views/layouts/front-page'
+        })
+    }
 }
 
 // GET / About

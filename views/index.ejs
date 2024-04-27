@@ -8,11 +8,23 @@
                 <p class="fs-4 mb-4">
                     Note is a simple to use free note taking app made with Node.js. EJS & MongoDB.
                 </p>
-                <a href="/auth/google" class="btn btn-primary btn-lg">
-                    Try Notes, it's Free
-                </a>
+                <% try { %>
+                <% if(userName) { %>
+                    <a href="/dashboard" class="btn btn-primary btn-lg">
+                        Dashboard
+                    </a>
+                <% } else { %>
+                    <a href="/auth/google" class="btn btn-primary btn-lg">
+                        Try Notes, it's Free
+                    </a>
+                <% } %>
+                <% } catch (error) { %>
+                    <a href="/auth/google" class="btn btn-primary btn-lg">
+                        Try Notes, it's Free
+                    </a>
+                <% } %>
             </div>
-
+            
         </div>
     </main>
 </div>
